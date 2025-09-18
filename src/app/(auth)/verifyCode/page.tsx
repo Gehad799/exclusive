@@ -35,15 +35,13 @@ export default function VerifyCode() {
         const res = await verifyCode(payload);
         console.log(res);
 
-        if (res?.status === "Success") {
+        if (res?.statusMsg === "success") {
           toast.success(res?.message, {
             position: "top-center",
           });
           setValue("resetCode", "");
           router.push("/resetPassword");
         } else {
-          console.log("ddd");
-
           toast.error(res?.message, {
             position: "top-center",
           });

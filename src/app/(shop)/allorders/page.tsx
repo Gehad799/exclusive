@@ -43,9 +43,9 @@ export default async function AllOrders() {
                     <div className="flex items-center  gap-4">
                       <p> Order #{index + 1}</p>
                       {order?.isDelivered ? (
-                        <span className="bg-green-500 p-1 rounded">Delivered</span>
+                        <span className="bg-green-500 p-1 rounded">Delivered successfully</span>
                       ) : (
-                        <span className="bg-red-300 p-1 rounded">Not Delivered</span>
+                        <span className="bg-red-300 p-1 rounded">Not Delivered yet</span>
                       )}
                     </div>
                   </AccordionTrigger>
@@ -105,7 +105,7 @@ export default async function AllOrders() {
               You have no orders yet
             </h2>
             <Button variant="outline" asChild>
-              <Link href="/products">Continue Shopping</Link>
+              <Link href="/products">Explore our products</Link>
             </Button>
           </div>
         )}

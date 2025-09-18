@@ -84,7 +84,15 @@ export const resetCodeSchema = z.object({
     .nonempty({
       message: "Code is required",
     })
-    .min(3, {
-      message: "Code must be  6 characters long",
-    }),
+    
 });
+
+export const resetPassSchema = z
+  .object({
+    email: z.email({
+      message: "Please enter a valid email address",
+    }),
+    newPassword: z.string().nonempty("Password is required").min(6, {
+      message: "Password must be at least 6 characters long",
+    }),
+  })

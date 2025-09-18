@@ -10,8 +10,11 @@ export interface ForgetPasswordPayload {
 export interface AuthResponse {
   message?: string;
   statusMsg?: string;
-  status?: string;
 }
 export interface VerifyResetCodePayload {
   resetCode: string;
+}
+export interface ResetPasswordPayload {
+  email: string;
+  newPassword: string;
 }
