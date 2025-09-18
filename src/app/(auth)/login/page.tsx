@@ -138,7 +138,7 @@ const Login = () => {
                   >
                     {isLogging ? "Logging in..." : "Login"}
                   </Button>
-                  <Link href="/" className="text-red-500 underline">
+                  <Link href="/forgetPassword" className="text-red-500 underline">
                     Forget Password
                   </Link>
                 </div>

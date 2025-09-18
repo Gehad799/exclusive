@@ -72,3 +72,10 @@ export const addressSchema = z.object({
     message: "Payment method is required",
   }),
 });
+
+
+export const forgetPassSchema = z.object({
+  email: z.email({
+    message: "Please enter a valid email address",
+  }),
+})
