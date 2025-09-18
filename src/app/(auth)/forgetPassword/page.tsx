@@ -5,7 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { ForgetPasswordPayload } from "@/interfaces/auth";
 import { forgetPassSchema } from "@/schemas/validationSchemas";
-import { foregtPassword } from "@/services/forgetPasswordApis";
+import { forgetPassword } from "@/services/forgetPasswordApis";
 import { zodResolver } from "@hookform/resolvers/zod";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -31,7 +31,7 @@ export default function ForgetPassword() {
   async function onSubmit(payload: ForgetPasswordPayload) {
     startTransition(async () => {
       try {
-        const res = await foregtPassword(payload);
+        const res = await forgetPassword(payload);
         console.log(res);
 
         if (res?.statusMsg === "success") {
@@ -39,7 +39,7 @@ export default function ForgetPassword() {
             position: "top-center",
           });
           setValue("email", "");
-          router.push("/resetPassword");
+          router.push("/verifyCode");
         } else {
           toast.error(res?.message, {
             position: "top-center",
@@ -70,7 +70,7 @@ export default function ForgetPassword() {
           </div>
           <div className="flex justify-between items-center">
             <Button className="cursor-pointer" disabled={isPending} type="submit">
-              Reset Password
+              Send code
             </Button>
             <Link href="/login" className="underline">
               Return to login

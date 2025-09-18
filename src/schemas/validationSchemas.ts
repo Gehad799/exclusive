@@ -73,9 +73,18 @@ export const addressSchema = z.object({
   }),
 });
 
-
 export const forgetPassSchema = z.object({
   email: z.email({
     message: "Please enter a valid email address",
   }),
-})
+});
+export const resetCodeSchema = z.object({
+  resetCode: z
+    .string()
+    .nonempty({
+      message: "Code is required",
+    })
+    .min(3, {
+      message: "Code must be  6 characters long",
+    }),
+});
