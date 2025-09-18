@@ -60,7 +60,7 @@ export default function CartPage() {
   }
 
   
-  async function handelDeleteItem(productId: string) {
+  async function handleDeleteItem(productId: string) {
     setDeletingProductId(productId);
 
     startTransition(async () => {
@@ -77,7 +77,7 @@ export default function CartPage() {
     });
   }
 
-  async function handelUpdateQuantity(productId: string, count: string) {
+  async function handleUpdateQuantity(productId: string, count: string) {
     setUpdatingProductId(productId);
     startTransition(async () => {
       const res = await updateQuantity(productId, count);
@@ -96,7 +96,7 @@ export default function CartPage() {
   return (
     <section className="py-10">
       <div className="container mx-auto px-8">
-        {isLoading ? (
+        {(isLoading || !cartItems) ? (
           <div className="text-center">
             <Loading />
           </div>
@@ -128,7 +128,7 @@ export default function CartPage() {
                             />
                             <Badge
                               onClick={() =>
-                                handelDeleteItem(product.product._id)
+                                handleDeleteItem(product.product._id)
                               }
                               variant={"destructive"}
                               className="cursor-pointer absolute -top-0 -end-.5 h-5 min-w-5 rounded-full px-1 font-mono tabular-nums"
@@ -150,7 +150,7 @@ export default function CartPage() {
                               variant={"outline"}
                               size={"sm"}
                               onClick={() =>
-                                handelUpdateQuantity(
+                                handleUpdateQuantity(
                                   product.product._id,
                                   (product.count - 1).toString()
                                 )
@@ -171,7 +171,7 @@ export default function CartPage() {
                               variant={"outline"}
                               size={"sm"}
                               onClick={() =>
-                                handelUpdateQuantity(
+                                handleUpdateQuantity(
                                   product.product._id,
                                   (product.count + 1).toString()
                                 )
