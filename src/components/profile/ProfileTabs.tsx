@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -8,12 +7,12 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import UpdatePassword from "./UpdatePassword";
+import UpdateUserData from "./UpdateUserData";
 
 export function ProfileTabs() {
+
   return (
     <div className="flex w-full max-w-md mx-auto flex-col gap-6">
       <Tabs defaultValue="account">
@@ -32,18 +31,9 @@ export function ProfileTabs() {
               </CardDescription>
             </CardHeader>
             <CardContent className="grid gap-6">
-              <div className="grid gap-3">
-                <Label htmlFor="tabs-demo-name">Name</Label>
-                <Input id="tabs-demo-name" defaultValue="Pedro Duarte" />
-              </div>
-              <div className="grid gap-3">
-                <Label htmlFor="tabs-demo-username">Username</Label>
-                <Input id="tabs-demo-username" defaultValue="@peduarte" />
-              </div>
+            <UpdateUserData />
             </CardContent>
-            <CardFooter>
-              <Button>Save changes</Button>
-            </CardFooter>
+           
           </Card>
         </TabsContent>
 
