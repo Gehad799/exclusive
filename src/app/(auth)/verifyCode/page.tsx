@@ -59,7 +59,7 @@ export default function VerifyCode() {
           <p className="text-2xl font-semibold">
             Enter reset code sent to your email
           </p>
-          <p>It's valid for 10 minutes only</p>
+          <p>It is valid for 10 minutes only</p>
         </div>
         <form
           className="mx-auto max-w-md  flex flex-col gap-2"

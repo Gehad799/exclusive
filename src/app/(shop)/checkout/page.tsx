@@ -23,7 +23,6 @@ export default function Checkout() {
     handleSubmit,
     formState: { errors },
     setValue,
-    watch,
     control,
   } = useForm<ShippingAddress>({
     defaultValues: {
@@ -65,9 +64,6 @@ export default function Checkout() {
       console.log("payload", payload);
     });
   }
-  useEffect(() => {
-    console.log(watch("paymentMethod"));
-  }, [watch("paymentMethod")]);
   return (
     <section className="py-10">
       <div className="container  mx-auto px-8">

@@ -4,11 +4,25 @@ import { getToken } from "next-auth/jwt";
 
 // This will happen with each request
 export async function middleware(request: NextRequest) {
-  const token = await getToken({ req: request });
+  const cookieName =
+    process.env.NODE_ENV === "production"
+      ? "__Secure-next-auth.session-token"
+      : "next-auth.session-token";
+  const token = await getToken({ req: request, cookieName });
   const { pathname } = request.nextUrl;
 
   const authRoutes = ["/login", "/register"];
-  const protectedRoutes = ["/", "/brands", "/products", "/categories", "/cart","/wishlist","/profile","/checkout","/allorders"];
+  const protectedRoutes = [
+    "/",
+    "/brands",
+    "/products",
+    "/categories",
+    "/cart",
+    "/wishlist",
+    "/profile",
+    "/checkout",
+    "/allorders",
+  ];
 
   //if there's a token and the user trys to access login or register we will redirect him to home page
   if (token && authRoutes.includes(pathname)) {
