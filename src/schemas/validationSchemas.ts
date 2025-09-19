@@ -79,20 +79,30 @@ export const forgetPassSchema = z.object({
   }),
 });
 export const resetCodeSchema = z.object({
-  resetCode: z
-    .string()
-    .nonempty({
-      message: "Code is required",
-    })
-    
+  resetCode: z.string().nonempty({
+    message: "Code is required",
+  }),
 });
 
-export const resetPassSchema = z
-  .object({
-    email: z.email({
-      message: "Please enter a valid email address",
-    }),
-    newPassword: z.string().nonempty("Password is required").min(6, {
-      message: "Password must be at least 6 characters long",
-    }),
-  })
+export const resetPassSchema = z.object({
+  email: z.email({
+    message: "Please enter a valid email address",
+  }),
+  newPassword: z.string().nonempty("Password is required").min(6, {
+    message: "Password must be at least 6 characters long",
+  }),
+});
+
+export const updateDataSchema = z.object({
+  name: z.string().min(3, {
+    message: "Name must be at least 3 characters long",
+  }).optional(),
+  email: z.email({
+    message: "Please enter a valid email address",
+  }).optional(),
+  phone: z
+    .string()
+    .regex(/^(010|011|012|015)[0-9]{8}$/, {
+      message: "Phone number must be 10 digits",
+    }).optional(),
+});

@@ -3,7 +3,7 @@ import { ProfileTabs } from "@/components/profile/ProfileTabs";
 import { useSession } from "next-auth/react";
 
 export default function Profile() {
-  const { data: sessionData, status } = useSession();
+  const { data: sessionData } = useSession();
   console.log(sessionData);
 
   return (
@@ -13,7 +13,7 @@ export default function Profile() {
           Welcome!
           <span className="ml-2 text-red-500">{sessionData?.user?.name}</span>
         </p>
-        <ProfileTabs />
+        <ProfileTabs  />
         </div>
     </section>
   );
