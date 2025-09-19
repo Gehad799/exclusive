@@ -50,7 +50,9 @@ const Login = () => {
         toast.success("Logged in successfully", {
           position: "top-center",
         });
-        router.push("/");
+        console.log(res?.url);
+        
+        router.push(res?.url || "/");
       } else {
         toast.error(res?.error || "Something went wrong", {
           position: "top-center",
@@ -138,7 +140,10 @@ const Login = () => {
                   >
                     {isLogging ? "Logging in..." : "Login"}
                   </Button>
-                  <Link href="/forgetPassword" className="text-red-500 underline">
+                  <Link
+                    href="/forgetPassword"
+                    className="text-red-500 underline"
+                  >
                     Forget Password
                   </Link>
                 </div>
