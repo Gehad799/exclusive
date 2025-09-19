@@ -139,7 +139,7 @@ export default function CartPage() {
                                 <X className="size-3" />
                               )}
                             </Badge>
-                            <p>{product.product.title}</p>
+                            <p className="line-clamp-1">{product.product.title}</p>
                           </div>
                         </TableCell>
                         <TableCell>EGP {product.price}</TableCell>
